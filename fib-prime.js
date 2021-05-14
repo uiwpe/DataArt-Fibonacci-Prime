@@ -10,7 +10,7 @@ const fibonacci = num => {
   return fibonacci(num - 1) + fibonacci(num - 2)
 }
 
-function nextPrimeFibonacci(input) {
+const nextPrimeFibonacci = input => {
   let iterable = 1
 
   while (true) {
