@@ -1,34 +1,35 @@
-var ispnum = function(num) {
-  for(var i = 2; i < num; i++)
-    if  (num % i === 0) return false;
-  return num > 1;
-};
+const isPrime = num => {
+  for (let i = 2, s = Math.sqrt(num); i <= s; i++)
+    if (num % i === 0) return false
 
-const fibonacci = (num) => {
-  if (num <= 1)return 1;
-  return fibonacci(num - 1) + fibonacci(num - 2);
-};
-
-function nxtPrmFib(number) {
-  let r = 0;
-  let l = 1;
-  while (true) {
-    var fib = fibonacci(l);
-    console.log('fib', fib, number);
-    if (fib > number) {
-      if (ispnum(fib)) {
-        r = fib;
-        break;
-      } else {
-        l = l + 1;
-        console.warn('bumping to ', fib);
-      }
-    } else {
-      l = l + 1;
-      console.warn('bumping to', fib);
-    }
-  }
-  console.warn('Next prime fib ', r);
+  return num > 1
 }
 
-nxtPrmFib(20);
+const fibonacci = num => {
+  let phi = (1 + Math.sqrt(5)) / 2
+  return Math.round(Math.pow(phi, num) / Math.sqrt(5))
+}
+
+const nextPrimeFibonacci = input => {
+  let iterable = 1
+
+  while (true) {
+    let result = fibonacci(iterable)
+    console.log('input value:', input, 'current result:', result)
+
+    if (result > input) {
+      if (isPrime(result)) {
+        return result
+      } else {
+        iterable++
+        console.warn('bumping to:', result)
+      }
+    } else {
+      iterable++
+      console.warn('bumping to:', result)
+    }
+  }
+}
+
+console.info('Next prime Fibonacci: ', nextPrimeFibonacci(20))
+
