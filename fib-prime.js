@@ -8,9 +8,6 @@ const isPrime = num => {
 const fibonacci = num => {
   let phi = (1 + Math.sqrt(5)) / 2
   return Math.round(Math.pow(phi, num) / Math.sqrt(5))
-
-  // if (num <= 1) return 1
-  // return fibonacci(num - 1) + fibonacci(num - 2)
 }
 
 const nextPrimeFibonacci = input => {
